@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Nuevo Capítulo</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Agregar Nuevo Capítulo a <span th:text="${temporada.nombre}">Nombre de la Temporada</span></h1>
+</header>
+
+<main>
+    <form action="#" th:action="@{/temporadas/{id}/nuevo-capitulo(id=${temporada.id})}" th:object="${capitulo}" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" required>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" th:field="*{descripcion}" required></textarea>
+
+        <label for="imagen_url">URL de Imagen:</label>
+        <input type="text" id="imagen_url" th:field="*{imagenUrl}" required>
+
+        <button type="submit">Agregar Capítulo</button>
+    </form>
+</main>
+
+<footer>
+    <p>Proyecto desarrollado por Karen Jasbleidy López Ruiz - 31/10/24</p>
+</footer>
+
+</body>
+</html>

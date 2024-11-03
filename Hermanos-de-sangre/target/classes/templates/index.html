@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermanos de Sangre</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<header>
+    <h1 th:text="${serie.nombre}">Nombre de la Serie</h1>
+    <p th:text="'Creador: ' + ${serie.creador}">Creador de la Serie</p>
+</header>
+
+<main>
+    <section class="poster-section">
+        <img th:src="${serie.poster_url}" alt="Poster de la serie">
+        <div class="serie-info">
+            <p><strong>Clasificación:</strong> <span th:text="${serie.clasificacion}">Clasificación</span></p>
+            <p><strong>Año de emisión:</strong> <span th:text="${serie.anio_emision}">Año</span></p>
+            <p th:text="${serie.descripcion}">Descripción de la serie</p>
+        </div>
+    </section>
+
+    <section class="temporadas-section">
+        <h2>Temporadas</h2>
+        <p>Haz clic en el siguiente enlace para ver las temporadas y episodios de la serie.</p>
+        <a href="/temporadas" class="button">Ver Temporadas</a>
+    </section>
+</main>
+
+<footer>
+    <p>Proyecto desarrollado por Karen Jasbleidy López Ruiz - 31/10/24</p>
+    <p>Aplicación web para la serie 'Hermanos de Sangre', mostrando detalles de temporadas y capítulos.</p>
+</footer>
+</body>
+</html>

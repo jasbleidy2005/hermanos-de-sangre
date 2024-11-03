@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulos de Temporada</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<header>
+    <h1 th:text="${temporada.nombre}">Nombre de la Temporada</h1>
+</header>
+
+<main>
+    <section class="capitulos-list">
+        <ul>
+            <li th:each="capitulo : ${capitulos}">
+                <div class="capitulo">
+                    <img th:src="${capitulo.imagen_url}" alt="Imagen del capítulo">
+                    <div class="capitulo-info">
+                        <h3 th:text="${capitulo.nombre}">Nombre del Capítulo</h3>
+                        <p th:text="${capitulo.descripcion}">Descripción del capítulo</p>
+                        <p><strong>Calificación:</strong></p>
+                        <div class="rating">
+                            <span th:each="i : ${#numbers.sequence(1, 5)}" th:classappend="${i <= capitulo.calificacion ? 'star-filled' : 'star-empty'}">&#9733;</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>Proyecto desarrollado por Karen Jasbleidy López Ruiz - 31/10/24</p>
+</footer>
+
+</body>
+</html>

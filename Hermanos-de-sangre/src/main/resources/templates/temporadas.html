@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporadas</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Temporadas de Hermanos de Sangre</h1>
+</header>
+
+<main>
+    <section class="temporadas-list">
+        <ul>
+            <li th:each="temporada : ${temporadas}">
+                <a th:href="@{/temporadas/{id}/capitulos(id=${temporada.id})}">
+                    <strong th:text="${temporada.numero}">1</strong> -
+                    <span th:text="${temporada.descripcion}">Descripción</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>Proyecto desarrollado por Karen Jasbleidy López Ruiz - 31/10/24</p>
+</footer>
+
+</body>
+</html>
